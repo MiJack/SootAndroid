@@ -1,10 +1,8 @@
 package com.mijack.sootdemo;
 
-import com.mijack.sootdemo.datas.JClass;
 import com.mijack.sootdemo.datas.JMethod;
 import soot.*;
 import soot.options.Options;
-import soot.util.Chain;
 
 import java.util.Collections;
 import java.util.List;
@@ -14,8 +12,8 @@ import java.util.List;
  * @date 2016/12/21.
  */
 public class MyMain {
-    public static final String ANDROID_JAR = "E:\\代码\\SootAndroid\\apk";
-    private static final String JIMPLE_FILES = "E:\\代码\\SootAndroid\\sootOutput";
+    public static final String ANDROID_JAR = "F:\\FaultLocation\\SootAndroid\\apk";
+    private static final String JIMPLE_FILES = "F:\\FaultLocation\\SootAndroid\\sootOutput";
 
     public static void main(String[] args) {
         Options.v().set_allow_phantom_refs(true);

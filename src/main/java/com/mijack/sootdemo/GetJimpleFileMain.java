@@ -1,17 +1,7 @@
 package com.mijack.sootdemo;
 
-import com.annimon.stream.Stream;
-import com.annimon.stream.function.Predicate;
-import org.jboss.util.stream.Streams;
-import rx.Observable;
 import soot.*;
-import soot.jimple.Jimple;
-import soot.jimple.toolkits.scalar.ConditionalBranchFolder;
-import soot.jimple.toolkits.scalar.CopyPropagator;
-import soot.jimple.toolkits.scalar.DeadAssignmentEliminator;
-import soot.jimple.toolkits.scalar.UnreachableCodeEliminator;
 import soot.options.Options;
-import soot.toolkits.scalar.UnusedLocalEliminator;
 
 import java.util.Collections;
 

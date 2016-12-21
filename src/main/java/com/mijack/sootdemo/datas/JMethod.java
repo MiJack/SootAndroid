@@ -61,7 +61,8 @@ public class JMethod {
             return STATUS_RETURN;
         } else if (unit instanceof JAssignStmt
                 || unit instanceof JNopStmt
-                || unit instanceof JIdentityStmt) {
+                || unit instanceof JIdentityStmt
+                || unit instanceof JInvokeStmt) {
             return STATUS_BIASC;
         } else {
             throw new IllegalStateException("Unit[" + unit.getClass().getName() + "] is not surpported ");
