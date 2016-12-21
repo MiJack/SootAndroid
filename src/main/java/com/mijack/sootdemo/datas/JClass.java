@@ -1,5 +1,10 @@
 package com.mijack.sootdemo.datas;
 
+import soot.SootClass;
+import soot.SootMethod;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -8,8 +13,19 @@ import java.util.Set;
  */
 public class JClass {
 
-    private Set<JMethod> methodSet;
+    private Map<String,JMethod> methodMap;
+    private SootClass clazz;
 
-    public JClass() {
+    public JClass(SootClass clazz) {
+        this.clazz = clazz;
+        methodMap=new LinkedHashMap<>();
+        for (SootMethod method : clazz.getMethods()) {
+            methodMap.put(method.getSignature(),new JMethod(method));
+        }
+
+    }
+
+    public String getClassName() {
+        return clazz.getName();
     }
 }
