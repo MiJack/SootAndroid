@@ -6,8 +6,8 @@ import soot.options.Options;
 import java.util.Collections;
 
 public class GetJimpleFileMain {
-    public static final String APK = "E:\\AndroidStudioProjects\\FaultLocationProject\\app\\build\\outputs\\apk\\app-debug.apk";
-    public static final String ANDROID_JAR = "E:\\代码\\SootAndroid\\apk";
+    public static final String APK = "F:\\FaultLocation\\FaultLocationProject\\app\\build\\outputs\\apk\\app-debug.apk";
+    public static final String ANDROID_JAR = "F:\\FaultLocation\\SootAndroid\\apk";
 
     public static void main(String[] args) {
         init();
