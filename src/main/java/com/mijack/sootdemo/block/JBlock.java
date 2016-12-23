@@ -1,8 +1,5 @@
 package com.mijack.sootdemo.block;
 
-import soot.Unit;
-
-import java.util.Deque;
 import java.util.Iterator;
 import java.util.LinkedList;
 
@@ -27,10 +24,6 @@ public class JBlock {
         return blockType.canReturn();
     }
 
-    public void transform(BlockType type) {
-        blockType = type;
-    }
-
     public Iterator<JBlock> nextBlockIterator() {
         return nextBlocks.iterator();
     }
@@ -43,13 +36,16 @@ public class JBlock {
         nextBlocks.addLast(block);
     }
 
-    public void addLast(Unit unit) {
+    public void addLast(JBlock block) {
         throw new UnsupportedOperationException();
     }
 
+    public int size() {
+        return 0;
+    }
 
 //
-//    public Deque<Unit> getUnitDeque() {
+//    public Deque<Unit> getBlockDeque() {
 //        return null;
 //    }
 }

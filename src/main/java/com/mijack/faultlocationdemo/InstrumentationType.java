@@ -4,7 +4,7 @@ package com.mijack.faultlocationdemo;
  * @author admin
  * @date 2016/12/21
  */
-public enum Type {
+public enum InstrumentationType {
     IF_START,
     IF_END,
     IF_THEN_START,
@@ -14,11 +14,11 @@ public enum Type {
     RETURN;
     private String output_format;
 
-    Type() {
+    InstrumentationType() {
         this("[%d]");
     }
 
-    Type(String output_format) {
+    InstrumentationType(String output_format) {
         this.output_format = output_format;
     }
 

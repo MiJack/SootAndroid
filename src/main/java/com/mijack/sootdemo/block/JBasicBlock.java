@@ -10,7 +10,7 @@ import java.util.Deque;
  * @since 2016/12/23.
  */
 public class JBasicBlock extends JBlock {
-    private Deque<Unit> deque = new ArrayDeque<>();
+    private Deque<JBlock> deque = new ArrayDeque<>();
 
     public JBasicBlock() {
         this(BlockType.BASIC_BLOCK);
@@ -20,11 +20,11 @@ public class JBasicBlock extends JBlock {
         super(block);
     }
 
-    public void addLast(Unit unit) {
+    public void addLast(JBlock unit) {
         deque.addLast(unit);
     }
 
-    public Deque<Unit> getUnitDeque() {
+    public Deque<JBlock> getBlockDeque() {
         return deque;
     }
 }

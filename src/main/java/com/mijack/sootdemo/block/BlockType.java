@@ -30,7 +30,7 @@ public enum BlockType {
         public boolean canReturn() {
             return true;
         }
-    };
+    }, STMT_BLOCK;
 
     public boolean canReturn() {
         return false;

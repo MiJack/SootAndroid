@@ -18,6 +18,15 @@ public class MyMain {
     private static final String JIMPLE_FILES = "F:\\FaultLocation\\SootAndroid\\sootOutput";
 
     public static void main(String[] args) {
+        try {
+            run();
+        } catch (Exception e) {
+            System.out.println("---");
+            e.printStackTrace();
+        }
+    }
+
+    public static void run() {
         Options.v().set_allow_phantom_refs(true);
         Options.v().set_prepend_classpath(true);
         Options.v().set_validate(true);

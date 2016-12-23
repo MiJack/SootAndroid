@@ -1,6 +1,8 @@
 package com.mijack.sootdemo.block;
 
-import soot.Unit;
+import com.mijack.sootdemo.datas.JInstrumentationBlock;
+
+import java.util.Deque;
 
 /**
  * @author admin
@@ -20,23 +22,37 @@ public class JIfElseBlock extends JBlock {
         return true;
     }
 
-    public void addCondition(Unit unit) {
-        ifConditionBlock.addLast(unit);
+    public void addCondition(JBlock block) {
+        ifConditionBlock.addLast(block);
     }
 
-    public Unit getConditionLastUnit() {
-        return ifConditionBlock.getUnitDeque().peekLast();
+    //
+//    public Unit getConditionLastUnit() {
+//        return ifConditionBlock.getBlockDeque().peekLast();
+//    }
+//
+    public void addThenNext(JBlock block) {
+        ifThenBlock.addLast(block);
     }
 
-    public void addThenNext(Unit unit) {
-        ifThenBlock.addLast(unit);
+    //
+//    public Unit getThenLastUnit() {
+//        return ifThenBlock.getBlockDeque().peekLast();
+//    }
+//
+    public void addElseNext(JBlock block) {
+        ifElseBlock.addLast(block);
     }
 
-    public Unit getThenLastUnit() {
-        return ifThenBlock.getUnitDeque().peekLast();
+    public boolean isThenEnd() {
+        Deque<JBlock> deque = ifConditionBlock.getBlockDeque();
+        return ifConditionBlock.size() > 2
+                && (deque.getFirst() instanceof JInstrumentationBlock)
+                && (deque.getLast() instanceof JInstrumentationBlock);
     }
 
-    public void addElseNext(Unit unit) {
-        ifElseBlock.addLast(unit);
+    public boolean isThenStart() {
+        Deque<JBlock> deque = ifThenBlock.getBlockDeque();
+        return deque.size() > 0;
     }
 }

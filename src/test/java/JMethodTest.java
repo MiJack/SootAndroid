@@ -43,4 +43,14 @@ public class JMethodTest {
         JMethod fun1 = new JMethod(method);
         System.out.println(fun1);
     }
+
+    @Test
+    public void testFun6() {
+        Scene.v().loadNecessaryClasses();
+        PackManager.v().runBodyPacks();
+        SootClass sootClass = Scene.v().getSootClass("com.mijack.faultlocationdemo.InstrumentationActivity");
+        SootMethod method = sootClass.getMethodByName("fun6");
+        JMethod fun6 = new JMethod(method);
+        System.out.println(fun6);
+    }
 }
