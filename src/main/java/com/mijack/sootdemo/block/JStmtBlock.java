@@ -24,6 +24,6 @@ public class JStmtBlock extends JBlock {
 
     @Override
     public String toString() {
-        return "JStmtBlock[" + this.hashCode() + "]" + rawUnit ;
+        return "JStmtBlock[" + rawUnit + "]";
     }
 }

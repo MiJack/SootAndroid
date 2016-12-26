@@ -1,10 +1,9 @@
 package com.mijack.sootdemo;
 
-import com.mijack.sootdemo.datas.JMethod;
+import com.mijack.sootdemo.core.JClass;
 import soot.PackManager;
 import soot.Scene;
 import soot.SootClass;
-import soot.SootMethod;
 import soot.options.Options;
 
 import java.util.Collections;
@@ -43,16 +42,28 @@ public class MyMain {
 
         PackManager.v().runBodyPacks();
         SootClass sootClass = Scene.v().getSootClass("com.mijack.faultlocationdemo.InstrumentationActivity");
-        SootMethod method = sootClass.getMethodByName("fun1");
-        JMethod fun1 = new JMethod(method);
-        System.out.println(fun1);
-//        System.out.println(log);
-//        Chain<SootClass> classes = Scene.v().getApplicationClasses();
-//        Apk apk = new Apk();
-//        apk.setScene(Scene.v());
-//        for (SootClass clazz : classes) {
-//           apk.addClass(new JClass(clazz));
-//        }
-//        System.out.println(apk.getClasses().size());
+
+        JClass clazz = new JClass(sootClass);
+////      ok
+//        JMethod log = new JMethod(sootClass.getMethodByName("log"));
+////      ok
+//        JMethod fun1 = new JMethod(sootClass.getMethodByName("fun1"));
+////      ok
+//        JMethod fun2 = new JMethod(sootClass.getMethodByName("fun2"));
+////      ok
+//        JMethod fun3 = new JMethod(sootClass.getMethodByName("fun3"));
+////      暂不考虑
+////        JMethod fun4 = new JMethod(sootClass.getMethodByName("fun4"));
+////      暂不考虑
+////        JMethod fun5 = new JMethod(sootClass.getMethodByName("fun5"));
+////      ok
+//        JMethod fun6 = new JMethod(sootClass.getMethodByName("fun6"));
+////      ok
+//        JMethod fun7 = new JMethod(sootClass.getMethodByName("fun7"));
+////      ok
+//        JMethod fun8 = new JMethod(sootClass.getMethodByName("fun8"));
+////      ok
+//        JMethod fun9 = new JMethod(sootClass.getMethodByName("fun9"));
+        System.out.println("");
     }
 }

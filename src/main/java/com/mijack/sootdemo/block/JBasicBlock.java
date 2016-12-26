@@ -1,9 +1,8 @@
 package com.mijack.sootdemo.block;
 
-import soot.Unit;
-
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.Iterator;
 
 /**
  * @author Mr.Yuan
@@ -26,5 +25,25 @@ public class JBasicBlock extends JBlock {
 
     public Deque<JBlock> getBlockDeque() {
         return deque;
+    }
+
+    @Override
+    public JBlock getLast() {
+        return deque.peekLast();
+    }
+
+    @Override
+    public JBlock getBlock(Class<?> clazz, String id) {
+        if (this.getClass().equals(clazz)&&getId().equals(id)){
+            return this;
+        }
+        Iterator<JBlock> iterator = getBlockDeque().iterator();
+        while (iterator.hasNext()) {
+            JBlock block = iterator.next();
+            if (block.getClass().equals(clazz) && block.getId().equals(id)) {
+                return block;
+            }
+        }
+        return null;
     }
 }

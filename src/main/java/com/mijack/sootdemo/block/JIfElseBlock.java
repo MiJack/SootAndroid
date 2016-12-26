@@ -1,7 +1,5 @@
 package com.mijack.sootdemo.block;
 
-import com.mijack.sootdemo.datas.JInstrumentationBlock;
-
 import java.util.Deque;
 
 /**
@@ -12,6 +10,7 @@ public class JIfElseBlock extends JBlock {
     protected JBasicBlock ifConditionBlock = new JBasicBlock();
     protected JBasicBlock ifThenBlock = new JBasicBlock();
     protected JBasicBlock ifElseBlock = new JBasicBlock();
+    private String id;
 
     public JIfElseBlock() {
         super(BlockType.IF_BLOCK);
@@ -45,14 +44,45 @@ public class JIfElseBlock extends JBlock {
     }
 
     public boolean isThenEnd() {
-        Deque<JBlock> deque = ifConditionBlock.getBlockDeque();
-        return ifConditionBlock.size() > 2
-                && (deque.getFirst() instanceof JInstrumentationBlock)
-                && (deque.getLast() instanceof JInstrumentationBlock);
+        Deque<JBlock> deque = ifThenBlock.getBlockDeque();
+        return deque.size() > 2 &&
+                (deque.getFirst() instanceof JInstrumentationBlock)
+                && (deque.getLast() instanceof JInstrumentationBlock || deque.getLast() instanceof JReturnBlock);
     }
 
     public boolean isThenStart() {
         Deque<JBlock> deque = ifThenBlock.getBlockDeque();
-        return deque.size() > 0;
+        return deque.size() > 0 && (deque.getFirst() instanceof JInstrumentationBlock);
+    }
+
+    public boolean isElseStart() {
+        Deque<JBlock> deque = ifElseBlock.getBlockDeque();
+        return deque.size() > 0 && (deque.getFirst() instanceof JInstrumentationBlock);
+    }
+
+    public boolean isElseEnd() {
+        Deque<JBlock> deque = ifElseBlock.getBlockDeque();
+        return deque.size() > 2
+                && (deque.getFirst() instanceof JInstrumentationBlock)
+                && (deque.getLast() instanceof JInstrumentationBlock || deque.getLast() instanceof JReturnBlock);
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public JBlock getBlock(Class<?> clazz, String id) {
+        if (this.getClass().equals(clazz) && getId().equals(id)) {
+            return this;
+        }
+        JBlock block = ifThenBlock.getBlock(clazz, id);
+        if (block != null) {
+            return block;
+        }
+        return ifElseBlock.getBlock(clazz, id);
     }
 }

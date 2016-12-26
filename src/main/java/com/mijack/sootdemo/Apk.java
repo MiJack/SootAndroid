@@ -1,10 +1,9 @@
 package com.mijack.sootdemo;
 
-import com.mijack.sootdemo.datas.JClass;
+import com.mijack.sootdemo.core.JClass;
 import soot.Scene;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 /**

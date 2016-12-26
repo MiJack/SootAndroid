@@ -1,8 +1,9 @@
-package com.mijack.sootdemo.datas;
+package com.mijack.sootdemo.block;
 
 import com.mijack.faultlocationdemo.InstrumentationType;
-import com.mijack.sootdemo.block.JBasicBlock;
+import com.mijack.sootdemo.core.JMethod;
 import soot.Unit;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.regex.Matcher;
 
@@ -10,7 +11,7 @@ import java.util.regex.Matcher;
  * @author Mr.Yuan
  * @since 2016/12/23.
  */
-public class JInstrumentationBlock extends JBasicBlock {
+public class JInstrumentationBlock extends JBlock {
 
     private final Unit assignStmt;
     private final Unit invokeStmt;
@@ -34,8 +35,17 @@ public class JInstrumentationBlock extends JBasicBlock {
         }
     }
 
+    public String getId() {
+        return id;
+    }
+
     public InstrumentationType getType() {
         return type;
+    }
+
+    @Override
+    public void addLast(JBlock unit) {
+        throw new NotImplementedException();
     }
 
     @Override

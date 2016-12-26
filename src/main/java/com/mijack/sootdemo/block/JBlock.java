@@ -7,7 +7,7 @@ import java.util.LinkedList;
  * @author admin
  * @date 2016/12/21.
  */
-public class JBlock {
+public abstract class JBlock {
     protected LinkedList<JBlock> nextBlocks;
     BlockType blockType;
 
@@ -20,6 +20,9 @@ public class JBlock {
         nextBlocks = new LinkedList<>();
     }
 
+    public String getId() {
+        return null;
+    }
     public boolean canReturn() {
         return blockType.canReturn();
     }
@@ -42,6 +45,23 @@ public class JBlock {
 
     public int size() {
         return 0;
+    }
+
+    public JBlock getLast() {
+        return null;
+    }
+
+    public JBlock nextBlock() {
+        Iterator<JBlock> iterator = nextBlocks.iterator();
+        return iterator.hasNext() ? iterator.next() : null;
+    }
+
+    public boolean hasNextBlock() {
+        return !nextBlocks.isEmpty();
+    }
+
+    public JBlock getBlock(Class<?> clazz, String id) {
+        return null;
     }
 
 //

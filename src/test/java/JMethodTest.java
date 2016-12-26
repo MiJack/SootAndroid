@@ -1,4 +1,4 @@
-import com.mijack.sootdemo.datas.JMethod;
+import com.mijack.sootdemo.core.JMethod;
 import org.junit.Before;
 import org.junit.Test;
 import soot.PackManager;

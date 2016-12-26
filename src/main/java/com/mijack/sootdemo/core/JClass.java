@@ -1,11 +1,10 @@
-package com.mijack.sootdemo.datas;
+package com.mijack.sootdemo.core;
 
 import soot.SootClass;
 import soot.SootMethod;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * @author admin
@@ -20,6 +19,7 @@ public class JClass {
         this.clazz = clazz;
         methodMap=new LinkedHashMap<>();
         for (SootMethod method : clazz.getMethods()) {
+            System.out.println("[method]"+method.getSignature());
             methodMap.put(method.getSignature(),new JMethod(method));
         }
 
